@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="my_module.my_model_list">
+      <field name="name">My Model List</field>
+      <field name="model">my_module.my_model</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="my_module.model_form">
+      <field name="name">My Model Form</field>
+      <field name="model">my_module.my_model</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name" string="Name"/>
+              <field name="value"/>
+              <field name="value2"/>
+              <field name="description"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on model -->
+    <record model="ir.actions.act_window" id="my_module.my_model_action_window">
+      <field name="name">My Model Window</field>
+      <field name="res_model">my_module.my_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="My Module" id="my_module.menu_root"/>
+
+    <!-- Menu Categories -->
+    <menuitem name="Menu 1" id="my_module.menu_1" parent="my_module.menu_root"/>
+
+    <!-- Actions -->
+    <menuitem name="My Model" id="my_module.menu_my_model" parent="my_module.menu_1"
+              action="my_module.my_model_action_window"/>
+
+
+  </data>
+</odoo>
