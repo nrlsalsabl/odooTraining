@@ -1,0 +1,145 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="my_module.game_list">
+      <field name="name">Menu Game List</field>
+      <field name="model">my_module.game</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="role_id"/>
+          <field name="weapon_ids" widget="many2many_tags"/>
+          <field name="weightTotal" string="Total Weight"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="my_module.model_form">
+      <field name="name">Menu Game Form</field>
+      <field name="model">my_module.game</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name" string="Name" required="True"/>
+              <field name="role_id"/>
+              <field name="weapon_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on model -->
+    <record model="ir.actions.act_window" id="my_module.game_action_window">
+      <field name="name">Menu Game Window</field>
+      <field name="res_model">my_module.game</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+
+
+
+
+
+    <record model="ir.ui.view" id="my_module.role_list">
+      <field name="name">Menu Role List</field>
+      <field name="model">my_module.role</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nameRole"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="my_module.role_form">
+      <field name="name">Menu Role Form</field>
+      <field name="model">my_module.role</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="nameRole" string="Name" required="True"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on model -->
+    <record model="ir.actions.act_window" id="my_module.role_action_window">
+      <field name="name">Menu Role</field>
+      <field name="res_model">my_module.role</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+
+
+
+
+
+    <record model="ir.ui.view" id="my_module.weapon_list">
+      <field name="name">Menu Weapon List</field>
+      <field name="model">my_module.weapon</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nameWeapon"/>
+          <field name="weight"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="my_module.weapon_form">
+      <field name="name">Menu Weapon Form</field>
+      <field name="model">my_module.weapon</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="nameWeapon" string="Name" required="True"/>
+              <field name="weight"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on model -->
+    <record model="ir.actions.act_window" id="my_module.weapon_action_window">
+      <field name="name">Menu Weapon</field>
+      <field name="res_model">my_module.weapon</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+
+
+
+
+    <!-- Top menu item -->
+    <menuitem name="My Module" id="my_module.menu_root"/>
+
+    <!-- Menu Categories -->
+    <menuitem name="Menu Game" id="my_module.game" parent="my_module.menu_root"/>
+    
+    <!-- Actions -->
+    <menuitem name="Hero" id="my_module.menu_game" parent="my_module.game"
+              action="my_module.game_action_window"/>
+
+    <menuitem name="Role" id="my_module.menu_game2" parent="my_module.game"
+              action="my_module.role_action_window"/>
+    
+    <menuitem name="Weapon" id="my_module.menu_game3" parent="my_module.game"
+              action="my_module.weapon_action_window"/>
+
+  </data>
+</odoo>

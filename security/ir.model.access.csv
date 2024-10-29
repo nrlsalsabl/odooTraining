@@ -1,2 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 my_module.access_my_module_my_model,access_my_module_my_model,my_module.model_my_module_my_model,base.group_user,1,1,1,1
+
+my_module.access_my_module_game,access_my_module_game,my_module.model_my_module_game,base.group_user,1,1,1,1
+
+my_module.access_my_module_role,access_my_module_role,my_module.model_my_module_role,base.group_user,1,1,1,1
+
+my_module.access_my_module_weapon,access_my_module_weapon,my_module.model_my_module_weapon,base.group_user,1,1,1,1
